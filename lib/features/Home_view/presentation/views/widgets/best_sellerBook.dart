@@ -1,4 +1,4 @@
-import 'package:bookly_app/core/utilities/App_Assets.dart';
+import 'package:bookly_app/core/utilities/app_assets.dart';
 import 'package:bookly_app/core/utilities/Styles.dart';
 import 'package:bookly_app/core/utilities/constants.dart';
 import 'package:flutter/material.dart';
@@ -58,18 +58,18 @@ class BestSellerbook extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Text("19.99 €", style: Styles.textStyle16),
+                    const Text("19.99 €", style: Styles.textStyle16),
                     SizedBox(
                       width: 4.4.w,
                     ),
-                    Icon(
+                    const Icon(
                       Icons.star_rate_rounded,
                       color: Colors.yellow,
                     ),
                     SizedBox(
                       width: 0.3.w,
                     ),
-                    Text("4.8", style: Styles.textStyle14),
+                    const Text("4.8", style: Styles.textStyle14),
                     SizedBox(
                       width: 0.9.w,
                     ),
