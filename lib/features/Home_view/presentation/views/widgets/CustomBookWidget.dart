@@ -1,17 +1,20 @@
 import 'package:bookly_app/core/utilities/App_Assets.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
 
 class Custombookwidget extends StatelessWidget {
-  const Custombookwidget({super.key});
+  final double height;
+  final double width;
+  const Custombookwidget(
+      {super.key, required this.height, required this.width});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 35.h,
-      width: 35.w,
+      height: height,
+      width: width,
       decoration: const BoxDecoration(
         image: DecorationImage(
+          fit: BoxFit.fill,
           image: AssetImage(
             AppAssets.book1,
           ),

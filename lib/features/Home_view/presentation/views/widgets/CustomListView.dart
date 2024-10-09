@@ -15,7 +15,10 @@ class Customlistview extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return Padding(
             padding: EdgeInsets.symmetric(horizontal: 2.w),
-            child: const Custombookwidget(),
+            child: Custombookwidget(
+              height: 35.h,
+              width: 35.w,
+            ),
           );
         },
       ),
