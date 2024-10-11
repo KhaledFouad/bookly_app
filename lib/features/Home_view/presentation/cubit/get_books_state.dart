@@ -8,7 +8,7 @@ final class GetBooksInitial extends GetBooksState {}
 class BooksLoadingState extends GetBooksState {}
 
 class BooksSuccessState extends GetBooksState {
-  final List<Item> products;
+  final Item products;
 
   BooksSuccessState(this.products);
 }

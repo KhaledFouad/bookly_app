@@ -4,21 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/errors/failure.dart';
+import '../../data/repository/home_repo.dart';
 
 part 'get_books_state.dart';
 
 class GetBooksCubit extends Cubit<GetBooksState> {
-  GetBooksCubit(this.HomeRepo) : super(GetBooksInitial());
+  GetBooksCubit(this.homeRepo) : super(GetBooksInitial());
 
   static GetBooksCubit get(BuildContext context) => BlocProvider.of(context);
-  final HomeRepo;
-  List<Item> products = [];
+  final HomeRepo homeRepo;
+  // BookModel? bookModel;
+  Item? products;
   List<Item> newstProducts = [];
 
-  Future<void> getBooks() async {
+  Future<void> fetchBooks() async {
     emit(BooksLoadingState());
-    Either<Failure, List<Item>> result;
-    result = await HomeRepo.getBooks();
+    Either<Failure, Item> result;
+    result = await homeRepo.fetchBooks();
     result.fold((failure) {
       emit(BooksFailureState(failure.error));
     }, (products) {
@@ -30,7 +32,7 @@ class GetBooksCubit extends Cubit<GetBooksState> {
   Future<void> getNewstBooks() async {
     emit(GetNewestBooksLoadingState());
     Either<Failure, List<Item>> result;
-    result = await HomeRepo.getBooks();
+    result = await homeRepo.fetchBestSellerBooks();
     result.fold((failure) {
       emit(GetNewestBooksFailureState(failure.error));
     }, (newstProducts) {
