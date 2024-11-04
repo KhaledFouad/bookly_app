@@ -26,7 +26,14 @@ class BooklyApp extends StatelessWidget {
             create: (context) => GetBooksCubit(
               HomeReopImplementaion(
                 apiServices: ApiServicesImplementation(),
-              ),
+              )..fetchBestSellerBooks(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => GetBooksCubit(
+              HomeReopImplementaion(
+                apiServices: ApiServicesImplementation(),
+              )..fetchBooks(),
             ),
           ),
         ],
